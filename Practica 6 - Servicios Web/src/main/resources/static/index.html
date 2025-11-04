@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biblioteca - Índice</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; margin: 32px; }
+    h1 { color: #2c3e50 }
+    .card { border: 1px solid #ddd; padding: 16px; margin: 12px 0; border-radius: 6px; }
+    label { display:block; margin-top:8px }
+    input[type=text], input[type=number] { width: 300px; padding:6px }
+    button { margin-top:8px }
+    pre { background:#f6f8fa; padding:12px; border-radius:4px }
+  </style>
+</head>
+<body>
+  <h1>Biblioteca — Panel de prueba</h1>
+  <p>Usa este índice para navegar y probar los endpoints del servicio.</p>
+
+  <div class="card">
+    <h3>Autenticación de usuario (GET)</h3>
+    <label>ID de usuario <input id="uid" type="text" value="u123"></label>
+    <label>PIN <input id="upin" type="number" value="1111"></label>
+    <button onclick="autenticar()">Probar autenticación</button>
+    <pre id="out-auth"></pre>
+  </div>
+
+  <div class="card">
+    <h3>Consultar libro (GET)</h3>
+    <label>ISBN <input id="isbn-get" type="text" value="978-0-13-110362-7"></label>
+    <button onclick="consultarLibro()">Consultar</button>
+    <pre id="out-libro"></pre>
+  </div>
+
+  <div class="card">
+    <h3>Actualizar copias (PUT)</h3>
+    <label>ISBN <input id="isbn-put" type="text" value="978-0-13-110362-7"></label>
+    <label>Copias <input id="copias-put" type="number" value="3"></label>
+    <button onclick="actualizarCopias()">Actualizar</button>
+    <pre id="out-put"></pre>
+  </div>
+
+  <div class="card">
+    <h3>Pedir préstamo (POST)</h3>
+    <label>Usuario ID <input id="p-uid" type="text" value="u123"></label>
+    <label>ISBN <input id="p-isbn" type="text" value="978-0-13-110362-7"></label>
+    <button onclick="pedirPrestamo()">Pedir</button>
+    <pre id="out-pedir"></pre>
+  </div>
+
+  <div class="card">
+    <h3>Devolver libro (POST)</h3>
+    <label>Usuario ID <input id="d-uid" type="text" value="u123"></label>
+    <label>ISBN <input id="d-isbn" type="text" value="978-0-13-110362-7"></label>
+    <button onclick="devolverPrestamo()">Devolver</button>
+    <pre id="out-devolver"></pre>
+  </div>
+
+  <script>
+    const base = window.location.origin;
+
+    async function autenticar() {
+      const id = document.getElementById('uid').value;
+      const pin = document.getElementById('upin').value;
+      const url = base + '/usuarios/' + encodeURIComponent(id) + '/' + encodeURIComponent(pin);
+      const res = await fetch(url);
+      const text = await res.text();
+      document.getElementById('out-auth').textContent = text;
+    }
+
+    async function consultarLibro() {
+      const isbn = document.getElementById('isbn-get').value;
+      const url = base + '/libros/' + encodeURIComponent(isbn);
+      const res = await fetch(url);
+      const text = await res.text();
+      document.getElementById('out-libro').textContent = text;
+    }
+
+    async function actualizarCopias() {
+      const isbn = document.getElementById('isbn-put').value;
+      const copias = document.getElementById('copias-put').value;
+      const url = base + '/libros/' + encodeURIComponent(isbn) + '/copias?copias=' + encodeURIComponent(copias);
+      const res = await fetch(url, { method: 'PUT' });
+      const text = await res.text();
+      document.getElementById('out-put').textContent = text;
+    }
+
+    async function pedirPrestamo() {
+      const uid = document.getElementById('p-uid').value;
+      const isbn = document.getElementById('p-isbn').value;
+      const url = base + '/prestamos/pedir';
+      const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ usuarioId: uid, isbn: isbn }) });
+      const text = await res.text();
+      document.getElementById('out-pedir').textContent = text;
+    }
+
+    async function devolverPrestamo() {
+      const uid = document.getElementById('d-uid').value;
+      const isbn = document.getElementById('d-isbn').value;
+      const url = base + '/prestamos/devolver';
+      const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ usuarioId: uid, isbn: isbn }) });
+      const text = await res.text();
+      document.getElementById('out-devolver').textContent = text;
+    }
+  </script>
+</body>
+</html>
