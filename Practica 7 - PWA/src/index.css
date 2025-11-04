@@ -1,0 +1,111 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(10,10,20,0.08);
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+li {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 120px);
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.03), transparent), linear-gradient(135deg, #0f172a 0%, #071024 100%);
+  color: #e6eef8;
+}
+
+button {
+  background-color: lightcoral;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.install-btn {
+  background: linear-gradient(90deg,#5eead4,#06b6d4);
+  color: #022c3b;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .12s ease, opacity .12s ease;
+}
+.install-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+  transform: none;
+}
+.install-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+/* Card styles for Home */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 3rem;
+  border-radius: 14px;
+  text-align: center;
+  backdrop-filter: blur(6px) saturate(120%);
+  max-width: 720px;
+  margin: 2rem;
+  box-shadow: 0 10px 30px rgba(3,6,23,0.5);
+}
+
+.name {
+  margin: 0;
+  font-size: 2.25rem;
+  letter-spacing: 0.6px;
+  color: #fff;
+}
+
+.course {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.125rem;
+  color: #cfe6ff;
+  font-weight: 600;
+}
+
+.school {
+  margin: 0;
+  color: #9fb8d9;
+  font-size: 0.95rem;
+}

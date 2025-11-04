@@ -1,0 +1,26 @@
+{
+  "background_color": "#ffffff",
+  "description": "Esta es una PWA de prueba",
+  "dir": "ltr",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "lang": "es-MX",
+  "name": "PWA Lasfito test",
+  "orientation": "portrait",
+  "prefer_related_application": false,
+  "scope": "/",
+  "short_name": "PWA Lasfi",
+  "start_url": "/",
+  "theme_color": "orange"
+}
