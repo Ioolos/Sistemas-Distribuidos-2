@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Banco - Iniciar Sesión</title>
+  <link rel="stylesheet" href="../css/estilo.css">
+
+</head>
+<body>
+  <h1>Bienvenido al Banco</h1>
+  <form id="loginForm">
+    <label for="cuenta">Número de cuenta:</label><br>
+    <input type="text" id="cuenta" name="cuenta" required><br><br>
+
+    <label for="nip">NIP:</label><br>
+    <input type="password" id="nip" name="nip" required><br><br>
+
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+
+  <p id="mensaje" style="color: red;"></p>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>
