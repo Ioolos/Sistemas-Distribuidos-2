@@ -1,0 +1,49 @@
+/* estilos.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px auto;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: #1a237e;
+}
+
+input, button {
+  font-size: 16px;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3949ab;
+}
+
+hr {
+  margin: 25px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+#mensaje {
+  font-weight: bold;
+  padding: 10px;
+}

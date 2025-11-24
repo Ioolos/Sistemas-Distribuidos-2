@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Cuenta - Banco</title>
+  <link rel="stylesheet" href="../css/estilo.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      background-color: #f4f4f4;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #1a237e;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #1a237e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: red;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bienvenido</h1>
+  <p id="cuentaActiva"></p>
+  <button onclick="cerrarSesion()">Cerrar sesión</button>
+
+  <h2>Operaciones</h2>
+  <button onclick="abrirModal('saldo')">Consultar Saldo</button>
+  <button onclick="abrirModal('deposito')">Depositar</button>
+  <button onclick="abrirModal('retiro')">Retirar</button>
+  <button onclick="abrirModal('transferencia')">Transferir</button>
+
+  <!-- Ventanas modales -->
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modalContenido">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <div id="contenidoModal"></div>
+    </div>
+  </div>
+
+  <!-- Ventana de mensaje -->
+  <div class="modal" id="modalMensaje">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarMensaje()">&times;</span>
+      <p id="mensaje"></p>
+    </div>
+  </div>
+
+  <script src="../js/banco.js"></script>
+</body>
+</html>
